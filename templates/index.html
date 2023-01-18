@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IRIS CLASS IDENTIFIER</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+<style>
+.center {
+  text-align: center;
+  border: 3px solid green;
+}
+
+</style>
+
+
+ <div class="center">
+	<h1>Iris Prediction </h1>
+<style>
+input[type=text] {
+  width: 30%;
+  padding: 8px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+</style>
+
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+
+    	Enter Sepal Length  <input type="text" name="Sepal Length"  required="required" /><br>
+        Enter Sepal Width  <input type="text" name="Sepal Width"  required="required" /><br>
+        Enter Petal Length  <input type="text" name="Petal Length"  required="required" /><br>
+        Enter Petal Width  <input type="text" name="Petal Width"  required="required" /><br>
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+    </form>
+   <br>
+   <br>
+     <h2>{{ prediction_text }}</h2>
+ </div>
+
+</style>
+
+<br><img src="{{url_for('static', filename='images/irisflower.png')}}" width="200" height="200" class="right">
+<style type= "text/css">
+    body {
+  background-image: url{{url_for('static', filename='images/irisflower.jpg')}}
+}
+
+</style>
+</body>
+</html>
